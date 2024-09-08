@@ -14,7 +14,7 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
     // Lógica de autenticação fictícia (substitua com a lógica real)
     if (username === 'user' && password === 'password') {
         // Redireciona para o link que será adicionado
-        window.location.href = 'https://seulink.com'; // Substitua com o link real
+        window.location.href = 'https://youtu.be/k1b9ND7-jjI?si=KB-lkMT8ImyzYbOg'; // Substitua com o link real
     } else {
         alert('Usuário ou senha incorretos.');
     }
