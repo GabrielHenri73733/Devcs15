@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Redireciona para o link desejado (substitua 'https://www.exemplo.com' pelo link real)
             setTimeout(function() {
-                window.location.href = 'https://www.exemplo.com';
+                window.location.href = 'https://www.google.com';
             }, 1500); // Delay para a mensagem ser visível
         } else {
             messageBox.textContent = 'Usuário ou senha inválidos.';
