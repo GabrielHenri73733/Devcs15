@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEVCS15K</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Tela de Carregamento -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader-container">
+            <div class="spinner"></div>
+            <p>Carregando...</p>
+        </div>
+    </div>
+
+    <!-- Tela de Login -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-box">
+            <div class="logo">
+                <p>DEVCS15K</p>
+            </div>
+            <form id="login-form">
+                <div class="textbox">
+                    <input type="text" id="username" placeholder="Número de telefone, nome de usuário ou e-mail" required>
+                </div>
+                <div class="textbox">
+                    <input type="password" id="password" placeholder="Senha" required>
+                </div>
+                <button type="submit" class="btn">Entrar</button>
+            </form>
+            <div class="links">
+                <a href="#" id="forgot-password">Esqueceu a Senha?</a>
+                <a href="#" id="create-account">Criar Conta</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
