@@ -1,130 +1,50 @@
-/* styles.css */
+// scripts.js
 
-/* Tela de Carregamento */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const loginScreen = document.getElementById('login-screen');
+    const loginForm = document.getElementById('login-form');
+    const messageBox = document.getElementById('message');
 
-.loader-container {
-    text-align: center;
-}
+    // Simulação de carregamento
+    setTimeout(function() {
+        loadingScreen.style.opacity = '0';
+        setTimeout(function() {
+            loadingScreen.style.display = 'none';
+            loginScreen.style.display = 'flex';
+        }, 500); // Tempo para transição de fade out
+    }, 2000); // Tempo de simulação de carregamento (2 segundos)
 
-.spinner {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-}
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Evita o envio padrão do formulário
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
 
-.loading-screen p {
-    margin-top: 1em;
-    font-size: 1.2em;
-    color: #333;
-}
+        if (username === 'Devcs15k' && password === 'Devcs15free') {
+            messageBox.textContent = 'Acesso liberado!';
+            messageBox.style.color = 'green';
+            messageBox.style.display = 'block';
 
-/* Tela de Login */
-.login-screen {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fafafa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+            // Redireciona para o link desejado (substitua 'https://www.exemplo.com' pelo link real)
+            setTimeout(function() {
+                window.location.href = 'https://www.exemplo.com';
+            }, 1500); // Delay para a mensagem ser visível
+        } else {
+            messageBox.textContent = 'Usuário ou senha inválidos.';
+            messageBox.style.color = 'red';
+            messageBox.style.display = 'block';
+        }
+    });
 
-.login-box {
-    width: 90%;
-    max-width: 400px;
-    padding: 2em;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+    document.getElementById('forgot-password').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Funcionalidade de recuperação de senha ainda não implementada.');
+    });
 
-.logo p {
-    font-size: 2.5em;
-    color: #3897f0; /* Cor semelhante ao Instagram */
-    margin: 0;
-    font-weight: bold;
-}
+    document.getElementById('create-account').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Funcionalidade de criação de conta ainda não implementada.');
+    });
+});
 
-.textbox {
-    margin-bottom: 1em;
-}
-
-.textbox input {
-    width: 100%;
-    padding: 0.75em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-}
-
-.btn {
-    width: 100%;
-    padding: 0.75em;
-    background-color: #3897f0; /* Cor semelhante ao Instagram */
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1em;
-    margin-bottom: 1em;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #007bff;
-}
-
-.links {
-    margin-top: 1em;
-}
-
-.links a {
-    display: block;
-    color: #3897f0;
-    text-decoration: none;
-    margin: 0.5em 0;
-}
-
-.links a:hover {
-    text-decoration: underline;
-}
-
-.message {
-    margin-top: 1em;
-    color: #333;
-    font-size: 1.1em;
-    font-weight: bold;
-    display: none; /* Inicialmente escondido */
-}
-
-@media (max-width: 600px) {
-    .login-box {
-        width: 100%;
-        padding: 1.5em;
-    }
-}
