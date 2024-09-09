@@ -1,22 +1,23 @@
-// scripts.js
-
 document.addEventListener('DOMContentLoaded', function() {
-    const loadingScreen = document.getElementById('loading-screen');
-    const loginScreen = document.getElementById('login-screen');
     const loginForm = document.getElementById('login-form');
     const messageBox = document.getElementById('message');
+    const forgotPasswordModal = document.getElementById('forgot-password-modal');
+    const createAccountModal = document.getElementById('create-account-modal');
+    const closeForgot = document.getElementById('close-forgot');
+    const closeCreate = document.getElementById('close-create');
+    const forgotPasswordLink = document.getElementById('forgot-password');
+    const createAccountLink = document.getElementById('create-account');
+    const createAccountForm = document.getElementById('create-account-form');
 
-    // Simulação de carregamento
-    setTimeout(function() {
-        loadingScreen.style.opacity = '0';
-        setTimeout(function() {
-            loadingScreen.style.display = 'none';
-            loginScreen.style.display = 'flex';
-        }, 500); // Tempo para transição de fade out
-    }, 2000); // Tempo de simulação de carregamento (2 segundos)
+    // Mostrar Tela de Login após o Carregamento
+    window.onload = function() {
+        document.getElementById('loading-screen').style.display = 'none';
+        document.getElementById('login-screen').style.display = 'block';
+    };
 
+    // Validação de Login
     loginForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Evita o envio padrão do formulário
+        e.preventDefault();
 
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
@@ -26,10 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
             messageBox.style.color = 'green';
             messageBox.style.display = 'block';
 
-            // Redireciona para o link desejado (substitua 'https://www.exemplo.com' pelo link real)
             setTimeout(function() {
-                window.location.href = 'https://www.google.com';
-            }, 1500); // Delay para a mensagem ser visível
+                window.location.href = 'https://www.exemplo.com'; // Substitua pelo link desejado
+            }, 1500);
         } else {
             messageBox.textContent = 'Usuário ou senha inválidos.';
             messageBox.style.color = 'red';
@@ -37,14 +37,40 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    document.getElementById('forgot-password').addEventListener('click', function(e) {
-        e.preventDefault();
-        alert('Funcionalidade de recuperação de senha ainda não implementada.');
-    });
+    // Mostrar Modal de Recuperação de Senha
+    forgotPasswordLink.onclick = function() {
+        forgotPasswordModal.style.display = 'block';
+    };
 
-    document.getElementById('create-account').addEventListener('click', function(e) {
+    closeForgot.onclick = function() {
+        forgotPasswordModal.style.display = 'none';
+    };
+
+    // Mostrar Modal de Criação de Conta
+    createAccountLink.onclick = function() {
+        createAccountModal.style.display = 'block';
+    };
+
+    closeCreate.onclick = function() {
+        createAccountModal.style.display = 'none';
+    };
+
+    // Fechar Modal ao Clicar Fora
+    window.onclick = function(event) {
+        if (event.target === forgotPasswordModal) {
+            forgotPasswordModal.style.display = 'none';
+        } else if (event.target === createAccountModal) {
+            createAccountModal.style.display = 'none';
+        }
+    };
+
+    // Simular Criação de Conta
+    createAccountForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        alert('Funcionalidade de criação de conta ainda não implementada.');
+        const newUsername = document.getElementById('new-username').value;
+        const newEmail = document.getElementById('new-email').value;
+        const newPassword = document.getElementById('new-password').value;
+        alert(`Conta criada com sucesso! \nUsuário: ${newUsername} \nE-mail: ${newEmail}`);
+        createAccountModal.style.display = 'none';
     });
 });
-
