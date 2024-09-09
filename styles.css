@@ -1,30 +1,32 @@
-/* styles.css */
-
-/* Tela de Carregamento */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff;
+/* Responsividade e Estilo Base */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
-.loader-container {
-    text-align: center;
+.loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
 }
 
-.spinner {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
+.loader-container .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    border-top: 4px solid #333;
+    width: 40px;
+    height: 40px;
     animation: spin 1s linear infinite;
 }
 
@@ -33,98 +35,90 @@
     100% { transform: rotate(360deg); }
 }
 
-.loading-screen p {
-    margin-top: 1em;
-    font-size: 1.2em;
-    color: #333;
-}
-
-/* Tela de Login */
-.login-screen {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fafafa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.login-screen, .modal {
+    display: none; /* Oculto até ser ativado */
 }
 
 .login-box {
-    width: 90%;
-    max-width: 400px;
-    padding: 2em;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     text-align: center;
-}
-
-.logo p {
-    font-size: 2.5em;
-    color: #3897f0; /* Cor semelhante ao Instagram */
-    margin: 0;
-    font-weight: bold;
-}
-
-.textbox {
-    margin-bottom: 1em;
 }
 
 .textbox input {
     width: 100%;
-    padding: 0.75em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
 }
 
 .btn {
-    width: 100%;
-    padding: 0.75em;
-    background-color: #3897f0; /* Cor semelhante ao Instagram */
-    color: #fff;
+    background-color: #3897f0;
+    color: white;
     border: none;
-    border-radius: 6px;
+    padding: 10px 20px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 1em;
-    margin-bottom: 1em;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #007bff;
-}
-
-.links {
-    margin-top: 1em;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 100%;
 }
 
 .links a {
     display: block;
+    margin: 10px 0;
     color: #3897f0;
     text-decoration: none;
-    margin: 0.5em 0;
+    font-size: 14px;
 }
 
-.links a:hover {
-    text-decoration: underline;
+/* Estilo dos Modais */
+.modal {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
 }
 
-.message {
-    margin-top: 1em;
-    color: #333;
-    font-size: 1.1em;
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
     font-weight: bold;
-    display: none; /* Inicialmente escondido */
 }
 
-@media (max-width: 600px) {
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Adaptabilidade para Telas Pequenas */
+@media screen and (max-width: 600px) {
     .login-box {
-        width: 100%;
-        padding: 1.5em;
+        width: 90%;
+    }
+
+    .modal-content {
+        width: 90%;
     }
 }
